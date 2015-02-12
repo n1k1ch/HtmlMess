@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+</style>
+</head>
+<script type="text/javascript">
+
+function createChatElement(tag, xPos, yPos, html) {
+	var result = $(tag).css({position:'absolute', left:xPos, top:yPos});
+	
+	if(html != null) {
+		result.html(html);
+	}
+	
+	return result;
+}
+
+function getFormattedTime(date) {
+	var h = date.getHours().toString();
+	var m = date.getMinutes().toString();
+		
+	if(m.length === 1) {
+		m = "0" + m;
+	}
+
+	return h + ":" + m;
+}
+
+function generateTimePlusMinute(obj) {
+	var res = {};
+	var resultHours = obj['hour'];
+	var resultMinutes = obj['minute'];
+	resultMinutes = resultMinutes + 1;
+	
+	if(resultMinutes == 60) {
+		resultMinutes = 0;
+		resultHours++;
+	}
+	
+	if(resultHours == 24) {
+		resultHours = 0;
+	}
+	
+	res["hour"] = resultHours;
+	res["minute"] = resultMinutes;	
+	
+	return res;
+}
+
+function searchByName(array, name) {
+	for(var i = 0; i < array.length; i++) {
+		if(array[i]['id'] === name)
+		{
+			return array[i];
+		}
+	}
+}
+
+function addMessage(chatWindow, message) {
+	chatWindow.append(message);
+	chatWindow.finish().animate({ scrollTop: 1000 }, 500);
+}
+
+$(document).ready(function(){
+	var chat = $("div[data-role='chat']").eq(0);
+	chat.css({fontSize: chat.data('font-size')});
+	
+	var date = new Date();
+	var img = chat.data("image");	
+	chat.append($("<img>").attr('src', img));
+	
+	var cust_name = createChatElement(
+		"<span>", 
+		chat.data('customer-name-pos-x'),
+		chat.data('customer-name-pos-y'),
+		chat.data("customer-name")
+	);
+	
+	chat.append(cust_name);
+	
+	var time = createChatElement(
+		"<span>",
+		chat.data('time-pos-x'),
+		chat.data('time-pos-y'),
+		getFormattedTime(date)
+		);
+		
+	chat.append(time);
+	
+	var titleMessage = $("<div>").html(chat.data('title-message'))
+		.css({color: chat.data('title-color'), fontWeight: 'bold', fontSize: '11pt', margin: '20px 10px 20px 20px'});
+	
+	var chatWindow = createChatElement(
+		"<div>",
+		chat.data('chat-pos-x'),
+		chat.data('chat-pos-y'),
+		titleMessage
+	);
+	
+	chatWindow.css({
+		width: chat.data('chat-width'),
+		height: chat.data('chat-height'),
+		padding: '5px 5px 5px 5px',
+		maxHeight: chat.data('chat-height'),
+		overflowY: 'auto',
+		backgroundColor: "#fff",
+		fontSize:chat.data('chat-font-size')
+	});
+
+	chat.append(chatWindow);
+	
+	var messages = chat.data('messages').split("},{");
+	var spansToAppend = [];	
+	var firstInfo = chat.data('agent');
+	var secondInfo = chat.data('customer');
+	
+	var infoz = [];
+	
+	infoz.push(firstInfo);
+	infoz.push(secondInfo);
+	
+	var startHours = date.getHours();
+	var startMinutes = date.getMinutes();
+	
+	var timeCurr = {};
+	
+	timeCurr['hour'] = startHours;
+	timeCurr['minute'] = startMinutes;
+	
+	for(var i = 0; i < messages.length; i++) {
+		var msg = $.parseJSON(messages[i]);
+		var info = searchByName(infoz, msg['from']);
+		
+		var div = $("<div>")
+			.css({padding: '10px 10px 10px 10px', backgroundColor: info['background'], width:'390px', verticalAlign: 'top'});
+					
+		timeCurr = generateTimePlusMinute(timeCurr);
+		
+		var resultMinute = timeCurr['minute'].toString();		
+		var timeDiv = $("<div>").css({display:'inline-block', paddingRight: '5px', width:'40px', float: 'left'});		
+		timeDiv.html(timeCurr['hour'] + ":" + (resultMinute.length === 2 ? resultMinute : ("0" + resultMinute)) );		
+		
+		var nameSpan = $("<span>").css({fontWeight:'bold', paddingRight:'5px'});
+		nameSpan.html(info['name'] + ":");
+		
+		var textDiv = $("<div>").css({display:'inline-block', width:'340px'});
+		textDiv.append(nameSpan);
+		
+		var messageSpan = $("<span>");
+		messageSpan.html(msg['message']);		
+		textDiv.append(messageSpan);		
+		
+		div.append(timeDiv);		
+		div.append(textDiv);				
+		spansToAppend.push(div);
+	}
+	
+	var delay = 1000;
+	
+	$.each(spansToAppend, function(index, element){
+		setTimeout(function(){addMessage(chatWindow, element);}, delay * (index+1));
+	});
+});
+
+
+
+
+
+</script>
+<body>
+	
+	<div data-role="chat"
+		data-font-size="10pt"
+		data-customer-name="Mr. Ramirez"
+		data-customer-name-pos-x="115"
+		data-customer-name-pos-y="50"
+		data-customer='{"id":"customer_name","name":"Mr. Ramirez","background":"#fff"}'
+		data-agent='{"id":"agent_name","name":"Agent","background": "#E1E0D7"}'
+		data-time-pos-x="317"
+		data-time-pos-y="50"
+		data-chat-pos-x="20"
+		data-chat-pos-y="80"
+		data-chat-width="430"
+		data-chat-height="220"
+		data-chat-font-size="8pt"
+		data-title-message="***Chat inited with customer XXXYYYZZZ***"
+		data-title-color="#090"
+		data-messages='{"from":"agent_name", "message":"This is Carl in the billing department"}},{{"from":"customer_name", "message":"Yeah, nigger, this is me mister Ramirez an i will rape you"}},{{"from":"agent_name", "message":"This is Carl in the billing department. Please, be patient"}},{{"from":"customer_name", "message":"Me mr RAMIREZ@!d32143"}},{{"from":"agent_name", "message":"This is Carl in the billing department. Please, be patient"}},{{"from":"customer_name", "message":"Ramirez says smth. Please, be patient"}},{{"from":"agent_name", "message":"This is Carl in the billing department. Please, be patient"}},{{"from":"customer_name", "message":"ramirez again seys ment. Please, be patient"}},{{"from":"agent_name", "message":"This is Carl in the billing department. Please, be patient"}},{{"from":"customer_name", "message":"ramirez say again Please, be patient"}},{{"from":"agent_name", "message":"This is Carl in the billing department. Please, be patient"}},{{"from":"customer_name", "message":"snova ramierz sadfsda\nse, be patient"}},{{"from":"agent_name", "message":"This is Carl in the billing department. Please, be patient"}},{{"from":"customer_name", "message":"Ramirezpartment. Please, be patient"}'
+		data-image="img/chat_1.png"
+		>
+	</div>
+
+</body>
+</html>

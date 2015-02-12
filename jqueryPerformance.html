@@ -1,0 +1,46 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+</style>
+</head>
+<script type="text/javascript">
+function createElExt(){
+	return $("<ul class='opa'></ul>");
+}
+
+function createElExt(){
+	return $("<ul/>", {class: 'opa'});
+}
+
+function testCreateElExt() {
+	var start = new Date().getTime();
+	
+	for(var i = 0; i < 100000; i++) {
+		var e = createElExt();
+	}
+	
+	console.log("createElExt: " + (new Date().getTime() - start));
+}
+
+function testCreateEl() {
+	var start = new Date().getTime();
+	
+	for(var i = 0; i < 100000; i++) {
+		var e = createElExt();
+	}
+	
+	console.log("createEl: " + (new Date().getTime() - start));
+}
+
+$(document).ready(function(){
+	testCreateEl();
+});
+
+</script>
+<body>
+
+
+</body>
+</html>

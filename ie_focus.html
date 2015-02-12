@@ -1,0 +1,39 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+</style>
+</head>
+
+<body>
+	<table>
+		<thead></thead>
+		<tbody>
+			<tr>
+				<td tabindex="1">1</td>
+				<td tabindex="-1">-1</td>
+				<td tabindex="-1">-1</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).on('keydown', function(e) { 
+		if(e.ctrlKey || e.altKey) {
+			return;
+		}
+				
+		var focusedTd = $("td").filter(":focus");
+		
+		console.log(focusedTd);
+	});
+	
+});
+
+</script>
+
+</html>

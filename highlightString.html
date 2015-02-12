@@ -1,0 +1,60 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+
+	body {
+		font-size: 12pt;
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 200px;
+		width: 100%;
+	}
+	
+	#result {
+		font-size: 0.7em;
+	}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	var $style = $('#highlight_style');
+	var $text = $('#highlight_text');
+	var $source = $('#source');
+	var $result = $('#result');
+
+	$(document).on('click', '#btn_highlight', function(e){
+		var currValue = $source.val();
+		var re = new RegExp($text.val(), 'g');
+		var newValue = currValue.replace(re, '<span style="' + $style.val() + '">' + $text.val() + '</span>');
+		$result.html(newValue);
+	});	
+});
+
+</script>
+<body>
+
+	<div class="form-elem">
+		<label for="highlight_style">Style for highlight:</label>
+		<input id="highlight_style" type="text" value="color:red; font-size:20pt"></input>
+	</div>
+	<div class="form-elem">
+		<label for="highlight_text">Text to highlight:</label>
+		<input id="highlight_text" type="text" value="Caused by"></input>
+	</div>
+	
+	<div class="form-elem">
+		<textarea id="source"></textarea>
+	</div>
+	<div class="form-elem">
+		<button id="btn_highlight">Highlight</button>
+	</div>
+	<div class="form-elem">
+		<div id="result"></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+	div {
+		width: 100px;
+		height: 100px;
+		background-color: #000;
+		margin-top: 10px;
+		display: inline-block;
+	}
+	
+	div[class] {
+		border: 3px solid #00f;
+	}
+	
+	div[class="first"]{
+		border-radius: 10px;
+	}
+	
+	div[class~="first"]{
+		background-color: #0f0;
+	}
+	
+	div[class*="thi"]{
+		background-color: #ff0;
+	}
+	
+	div[class^="fo"]{
+		background-color: #0ff;
+	}
+	
+	div[class$="fth"]{
+		opacity: 0.5;
+	}
+	
+	
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+});
+
+
+
+</script>
+<body>
+
+<div>
+
+</div>
+
+<div class="first">
+
+</div>
+<div class="first second">
+
+</div>
+<div class="third">
+
+</div>
+<div class="fourth">
+
+</div>
+
+<div class="fifth">
+
+</div>
+
+</body>
+</html>

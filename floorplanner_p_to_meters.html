@@ -1,0 +1,83 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+	div.inline {
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	textarea {
+		height: 100%;
+		width: 700px;
+	}
+	label, input {
+		display: block;
+	}
+	button {
+		display: inline-block;
+		width: 100px;
+	}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	var txtP = $('#txtP');
+	var txtMeters = $('#txtM');
+	var txtResult = $('#txtResult');
+
+	$(document).on('click', '#btnGo', function(e){
+		update();
+	});
+	
+	$(document).on('click', '#clear', function(e){
+		txtP.val('');
+		txtMeters.val('');
+		txtResult.val('');
+	});
+	
+	function update() {
+		var input = txtP.val().split(' ');
+		var txt = input[0] + ':';
+		var pVal = parseFloat(input[1]);
+		var meterVal = Math.round((pVal * 0.302 * 1000))/ 1000;
+		txtMeters.val(meterVal);
+		txtResult.val(txtResult.val() + '\r\n' + txt + pVal + 'p = ' + meterVal + 'm');
+		txtP.val('');
+	}
+	
+	$(document).on('keypress', '#txtP', function(e){
+		if(e.keyCode === 13) {
+			update();
+		}
+	});
+});
+
+</script>
+<body>
+
+<div class="inline">
+	<div>
+		<label>P:</label>
+		<input type="text" id="txtP" /> 
+	</div>
+	<div>
+		<label>M:</label>
+		<input type="text" id="txtM" /> 
+	</div>
+	<div>
+		<button id="btnClear">Clear</button>
+		<button id="btnGo">Go</button>
+	</div>
+</div>
+<div class="inline">
+	<div>
+		<textarea type="text" id="txtResult" ></textarea>
+	</div>
+</div>
+
+
+
+</body>
+</html>

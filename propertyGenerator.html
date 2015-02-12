@@ -1,0 +1,62 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+textarea#output {
+	width: 500px;
+	height: 80%;
+}
+textarea#input {
+	width: 500px;
+	height: 10%;
+}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).on('click', '#btnGo', function(e){
+		var prefix = $('#prefix').val();
+		var suffix = $('#suffix').val();
+		var startIndex = Number.parseInt($('#startIndex').val());
+		var endIndex = Number.parseInt($('#endIndex').val());
+		
+		var text = $('#input').val();
+		
+		var $output = $('#output');
+		
+		for(var i = startIndex; i <= endIndex; i++) {
+			$output.val($output.val() + '\n' + text.replace(/%s%/g, i));
+		}
+	});
+	
+	$(document).on('click', '#btnClear', function(e){
+		$('#output').val("");
+	});
+});
+
+</script>
+<body>
+
+<div>
+Input:
+<textarea id="input"></textarea>
+</div>
+<div>
+<div>
+Start index:
+<input type="text" id="startIndex"></input>
+</div>
+<div>
+End index:
+<input type="text" id="endIndex"></input>
+</div>
+<input type="button" id="btnClear" value="Clear"></input>
+<input type="button" id="btnGo" value="Go"></input>
+</div>
+<div>
+<textarea id="output"></textarea>
+</div>
+
+</body>
+</html>
