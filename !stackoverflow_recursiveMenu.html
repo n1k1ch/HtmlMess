@@ -1,0 +1,268 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import url(http://fontawesome.io/assets/font-awesome/css/font-awesome.css);
+body {
+  font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+#topnav {
+  clear: both;
+}
+/* Top Navigation */
+.topnav {
+  width: 100%;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  background: #505050;
+  background: linear-gradient(to bottom, #505050 0%, #2e2e2e 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #505050), color-stop(1, #2e2e2e));
+  background: -webkit-linear-gradient(top, #505050 0%, #2e2e2e 100%);
+  background: -ms-linear-gradient(top, #505050, #2e2e2e);
+  background: -moz-linear-gradient(center top, #505050 0%, #2e2e2e 100%);
+  background: -o-linear-gradient(#2e2e2e, #505050);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#505050', endColorstr='#2e2e2e', GradientType=0);
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  /* Level 1 */
+}
+.topnav ul.menu {
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 38px;
+}
+.topnav ul.menu li.item {
+  list-style: none;
+  display: inline-block;
+  /* Leve 2 */
+}
+.topnav ul.menu li.item > a {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #ffffff;
+  height: 20px;
+  display: inline-block;
+  text-decoration: none;
+  padding: 9px 20px;
+}
+.topnav ul.menu li.item a:hover {
+  background: #f4f4f4;
+  background: linear-gradient(to bottom, #f4f4f4 0%, #d2d2d2 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f4f4f4), color-stop(1, #d2d2d2));
+  background: -webkit-linear-gradient(top, #f4f4f4 0%, #d2d2d2 100%);
+  background: -ms-linear-gradient(top, #f4f4f4, #d2d2d2);
+  background: -moz-linear-gradient(center top, #f4f4f4 0%, #d2d2d2 100%);
+  background: -o-linear-gradient(#d2d2d2, #f4f4f4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#d2d2d2', GradientType=0);
+  color: #383838;
+}
+.topnav ul.menu li.item ul.submenu {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  -webkit-box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
+}
+.topnav ul.menu li.item ul.submenu li.item {
+  min-width: 140px;
+  /* Level 3+ */
+}
+.topnav ul.menu li.item ul.submenu li.item a {
+  display: block;
+  text-transform: none;
+}
+.topnav ul.menu li.item ul.submenu li.item:hover > a {
+  color: #383838;
+}
+.topnav ul.menu li.item ul.submenu li.item ul.submenu {
+  position: absolute;
+  left: 100%;
+  margin-top: -38px;
+}
+.topnav ul.menu li.item ul.submenu > li.item,
+.topnav ul.menu li.item ul.submenu li.item:hover ul.submenu > li.item {
+  display: block;
+  text-align: left;
+  background: #505050;
+  background: linear-gradient(to bottom, #505050 0%, #2e2e2e 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #505050), color-stop(1, #2e2e2e));
+  background: -webkit-linear-gradient(top, #505050 0%, #2e2e2e 100%);
+  background: -ms-linear-gradient(top, #505050, #2e2e2e);
+  background: -moz-linear-gradient(center top, #505050 0%, #2e2e2e 100%);
+  background: -o-linear-gradient(#2e2e2e, #505050);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#505050', endColorstr='#2e2e2e', GradientType=0);
+}
+.topnav ul.menu li.item ul.submenu li.item:hover,
+.topnav ul.menu li.item ul.submenu li.item ul.submenu li.item:hover {
+  background: #f4f4f4;
+  background: linear-gradient(to bottom, #f4f4f4 0%, #d2d2d2 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f4f4f4), color-stop(1, #d2d2d2));
+  background: -webkit-linear-gradient(top, #f4f4f4 0%, #d2d2d2 100%);
+  background: -ms-linear-gradient(top, #f4f4f4, #d2d2d2);
+  background: -moz-linear-gradient(center top, #f4f4f4 0%, #d2d2d2 100%);
+  background: -o-linear-gradient(#d2d2d2, #f4f4f4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#d2d2d2', GradientType=0);
+}
+.topnav ul.menu li.item > ul.submenu {
+  visibility: hidden;
+  opacity: 0;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.topnav ul.menu li.item:hover > ul.submenu {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+.topnav ul.menu > li.item {
+  float: left;
+  background: none;
+}
+li.parent > a:after {
+  position: relative;
+  float: right;
+  right: -5px;
+  width: 10px;
+  height: 20px;
+  line-height: 20px;
+  font-family: "FontAwesome";
+  content: "\f107";
+  font-size: 13px;
+  font-weight: normal;
+}
+li.parent:hover > a:after {
+  content: "\f105";
+  
+  
+}
+
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
+
+.loading img {
+	max-width: 100%;
+	height:auto;
+	width: auto\9;
+  }
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	/*getRandomInt() got here:
+	http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range,
+	vote for it plz :)*/
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	/** Generates <li class="item"><a href="#">Item {index}</a></li>*/
+	function createLeaf(index) {
+		var a = $("<a/>", {
+			href: "#",
+			text: "Item " + (index+1)});
+		var li = $("<li />", {
+			class: "item"
+		}).append(a);
+			
+		return li;
+	}
+	
+	var NESTING_LEVEL = 7;
+	var MIN_CHILD_NUMBER = 4;
+	var MAX_CHILD_NUMBER = 7;
+	
+	/** Generates <ul></ul> recursively*/
+	function createBranch(currentNode) {
+		var numberOfParents = currentNode.parents("li").length;
+		
+		//if we don't reach deepest level - we can add more ul
+		if(numberOfParents < NESTING_LEVEL-1) {
+			//decide, should we create submenu for current <li>
+			//we can remove "numberOfParents == 0", but in this case menu could be empty
+			if ( Math.round(Math.random()) == 1) {
+				//create <ul> submenu
+				var ul = $("<ul />", {
+					class: "submenu"
+				});
+				
+				currentNode.append(ul);
+
+				//adding children <li> to submenu
+				var childNumber = getRandomInt(MIN_CHILD_NUMBER, MAX_CHILD_NUMBER);
+				for(var i = 0; i < childNumber; i++) {
+					var li = createLeaf(i);
+					ul.append(li);
+					
+					//using recursion: submenu creation for current <li>
+					createBranch(li);
+				}
+			}
+		}
+		return currentNode;
+	}
+
+	/**could generate empty (nothing will be added to "#topnav")*/
+	function randomMenu() {
+		console.log("Started randomNonEmptyMenu: " + new Date());
+		var start = new Date().getTime();
+
+		var generated = createBranch($("#topnav"));
+		console.log("structure generated: " + (new Date().getTime() - start) + "ms");
+
+		generated.find("ul").parent("li").addClass("parent");
+		console.log("\"parent\" class added to LIs: " + (new Date().getTime() - start) + "ms");
+
+		generated.children("ul").removeClass("submenu").addClass("menu");
+
+		console.log("complete ul appended to topnav: " + (new Date().getTime() - start) + "ms");
+	}
+
+	function menuWithConstantNumberOfRootListItems(rootListItemsNumber){
+		console.log("Started menuWithConstantNumberOfRootListItems (" + rootListItemsNumber + " items) : " + new Date());
+		var start = new Date().getTime();
+		
+		var root = $("<ul/>", {class:"menu"});
+
+		//generate root <ul> with needed quantity of <li>
+		for(var i = 0; i < rootListItemsNumber; i++) {
+			var rootLeaf = createLeaf(i);
+			root.append(rootLeaf);
+			createBranch(rootLeaf);
+		}
+
+		console.log("structure generated: " + (new Date().getTime() - start) + "ms");
+
+		root.find("ul").parent("li").addClass("parent");
+		console.log("\"parent\" class added to LIs: " + (new Date().getTime() - start) + "ms");
+
+		$("#topnav").append(root);	
+		console.log("complete ul appended to topnav: " + (new Date().getTime() - start) + "ms");
+	}
+
+	//randomMenu();
+	menuWithConstantNumberOfRootListItems(4);
+});
+
+</script>
+<body>
+	<div id="topnav" class="topnav"></div>
+</body>
+</html>

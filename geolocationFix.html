@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"> Distance calculations </p>
+<button onclick="getLocation()"> Please Work</button>
+<script type="text/javascript">
+var x=document.getElementById("demo");
+var lat2= 40.084361;
+var lng2= -83.100484;
+function getLocation()
+{ 
+if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+    }
+else{x.innerHTML="geolocation is not supported";}
+}
+function showPosition(position)
+{
+    x.innerHTML="Latitide: "+ position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude; 
+var newlat = position.coords.latitude;
+var newlng = position.coords.longitude;
+
+var R = 6371; //km
+var dLat = (newlat-lat2).toRad();
+var dLon = (newlng-lng2).toRad();
+var lat2 = lat2.toRad();
+var newlat = newlat.toRad();
+
+var a = Math.sin(dLat/2) * Math.sin(dLat/2)+
+   Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat2)*Math.cos(newlat);
+var c = 2* Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+var d = R *c;
+x.innerHTML="distance:"+d;
+}
+</script>
+</body>
+</html>

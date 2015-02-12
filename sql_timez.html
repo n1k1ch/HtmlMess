@@ -1,0 +1,75 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+	table, td, th {
+		border: 1px solid #000;
+	}
+	
+	td, th {
+		padding: 5px 10px;
+	}
+	
+	th {
+		font-weight: bold;
+	}
+	
+	p.note {
+		padding: 10px 20px 10px 30px;
+		background-color: #eeeeff;
+	}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+});
+
+</script>
+<body>
+
+<table>
+<thead>
+	<tr>
+		<th>Serverz</th>
+		<th>closed_at</th>
+		<th>CURRENT_TIMESTAMP</th>
+		<th>UTC_TIMESTAMP</th>
+	</tr>
+</thead>
+	<tbody>
+		<tr>
+			<td>Local</td>
+			<td>16:00</td>
+			<td>16:00</td>
+			<td>13:00</td>
+		</tr>
+		<tr>
+			<td>hirex27</td>
+			<td>13:00</td>
+			<td>09:00</td>
+			<td>13:00</td>
+		</tr>
+	</tbody>
+</table>
+
+<div>
+	<p class="note">
+		MySQL converts TIMESTAMP values from the current time zone to UTC for storage, and back from UTC to the current time zone for retrieval. (This does not occur for other types such as DATETIME.) By default, the current time zone for each connection is the server's time. The time zone can be set on a per-connection basis. As long as the time zone setting remains constant, you get back the same value you store. If you store a TIMESTAMP value, and then change the time zone and retrieve the value, the retrieved value is different from the value you stored. This occurs because the same time zone was not used for conversion in both directions. The current time zone is available as the value of the time_zone system variable. For more information, see Section 10.6, "MySQL Server Time Zone Support".
+	</p>
+	
+	<p class="note">
+		The current session time zone setting affects display and storage of time values that are zone-sensitive. This includes the values displayed by functions such as NOW() or CURTIME(), and values stored in and retrieved from TIMESTAMP columns. Values for TIMESTAMP columns are converted from the current time zone to UTC for storage, and from UTC to the current time zone for retrieval.
+	</p>
+	<p class="note">
+		The current time zone setting does not affect values displayed by functions such as UTC_TIMESTAMP() or values in DATE, TIME, or DATETIME columns. Nor are values in those data types stored in UTC; the time zone applies for them only when converting from TIMESTAMP values. If you want locale-specific arithmetic for DATE, TIME, or DATETIME values, convert them to UTC, perform the arithmetic, and then convert back.
+	</p>
+	
+	<p class="note">
+		
+	</p>
+</div>
+
+</body>
+</html>

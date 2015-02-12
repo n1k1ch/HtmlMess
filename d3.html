@@ -1,0 +1,47 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+</style>
+<script src="js/d3.js" charset="utf-8"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	console.log(d3);
+	
+	var data = [{title:"Samsung", w:300, h:100},{title:"LG", w:500, h:100},{title:"Philips", w:400, h:100}];
+	
+	var canvas = d3.select("body")
+				   .append("svg")
+				   .attr("width", 1000)
+				   .attr("height", 700);
+				   /*
+	var roundRect = canvas.append("rect")
+						  .attr("width", 100)
+						  .attr("height", 50)
+						  .attr("rx", 10)
+						  .attr("ry", 10)
+						  .attr("fill", "#f0f");
+						  
+						  */
+						  
+	var rectz = canvas.selectAll("rect")
+					  .data(data)
+					  .enter()
+						.append("rect")
+							.attr("width", function(d){return d.w})
+							.attr("height", function(d){return d.h})
+							.attr("rx", function(d){return d.w / 10})
+							.attr("ry", function(d){return d.h / 10})
+							.attr("fill", "#f0f")
+							.attr("y", function(d, i){return (105 * i) + 10});
+});
+
+</script>
+<body>
+
+
+</body>
+</html>

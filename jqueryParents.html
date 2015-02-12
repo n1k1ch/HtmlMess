@@ -1,0 +1,54 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	//console.log($("#me").parents().length);
+	/*
+	 function create(elem, level) {
+		console.log(elem.parents().length);
+		elem.append();
+		
+		if(level === 3) {
+			alert(3);
+			level--;
+			return;
+		} else {
+			//create(elem, level++);
+			level++;
+			arguments.callee(elem, level);
+			return;
+		}
+	}
+	*/
+	
+	for(var i = 0; i < 1000; i++) {
+		console.log(Math.round(Math.random()));
+	}
+	
+	//create($("<div/>"), 0);
+	
+	
+	function factorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  
+  // This is it! Recursion!!
+  return n * factorial(n - 1);
+}
+
+//console.log(factorial(10));
+	
+});
+
+</script>
+<body>
+	<ul><li><ul><li id="me"></li></ul></li></ul>
+
+</body>
+</html>

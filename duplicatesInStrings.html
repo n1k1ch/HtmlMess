@@ -1,0 +1,133 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+	textarea#source {
+		width: 300px;height:300px;
+	}
+	textarea#duplicates {
+		width: 300px;
+		height: 300px;
+	}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){	
+	$(document).on('click', 'button#go', function(e){
+		//var val = $('textarea').val();
+		
+		var val = prompt("Enter answers divided by 'n1k1ch_divider'");
+		
+		var items = val.split('\n');
+		var answers = []; $.each(items, function(i, e){answers.push(e.split(':n1k1ch_divider:')[1])});
+		var dupl = [];
+		for(i = 0; i < answers.length; i++) {
+			var curr = answers[i];
+			for(j = 0; j < answers.length; j++){
+				if(j!=i && answers[j]===curr && dupl.indexOf(curr) == -1){
+					dupl.push(curr);
+				}
+			}
+		}
+		
+		$('textarea#duplicates').val(dupl);
+	});
+});
+
+</script>
+<body>
+<textarea id="source">ADAgreeableness_Caring_Politeq_defined:n1k1ch_divider:Caring - Other people's feelings and problems are important to me
+ADAgreeableness_Insightfuql_Safe_Vtwo_defined:n1k1ch_divider:Safe - I avoid doing things that are risky or could cause harm
+ADAgreeableness_Tolerantq_Brave_defined:n1k1ch_divider:Brave - I am courageous when faced with a challenge or scary situation
+ADExtraversion_Curious_Livelyq_defined:n1k1ch_divider:Curious - I enjoy learning about new things
+ADExtraversion_Observant_Funq_defined:n1k1ch_divider:Observant - I notice almost everything that happens around me
+ADExtraversion_Unreservedq_Inventive_defined:n1k1ch_divider:Inventive - I am good at coming up with new ideas
+ADInquisitiveness_Confident_Hopefulq_vBoB_defined:n1k1ch_divider:Hopeful - I believe that good things are going to happen in my life
+ADInquisitiveness_Versatileq_Civilized_vBoB_defined:n1k1ch_divider:Civilized - People say I am respectful and have good manners
+ADInquisitiveness_Wittyq_Consistent_vCoB_defined:n1k1ch_divider:Witty - People say I have a clever, smart sense of humor
+AD_Influential_Humorous:n1k1ch_divider:Influential - I can usually get others to agree with me
+Comp_Customer:n1k1ch_divider:upset, computer, trouble
+Comp_Employee:n1k1ch_divider:completing, training, excited
+Comp_Jon:n1k1ch_divider:early, sadly, manager
+Comp_Meeting:n1k1ch_divider:manager, exciting, boring
+Define_Persistent:n1k1ch_divider:to be extremely careful and precise when making decisions
+Define_Resourceful:n1k1ch_divider:showing a need for assistance in challenging circumstances
+Embededness_networking:n1k1ch_divider:More than 5 applications
+Embededness_referred:n1k1ch_divider:No
+Embededness_workthiscompany:n1k1ch_divider:More than 5 people
+FCAssertiveness_takesq_trusting:n1k1ch_divider:I am a person who usually takes charge
+FCCuriosity_above_newq_AnD_vBoB:n1k1ch_divider:I often go above and beyond in my work
+FCCuriosity_see_likeq:n1k1ch_divider:I see myself as a customer advocate
+FCIntegrity_made_breakq_Vtwo:n1k1ch_divider:Sometimes it's necessary to break the rules to accomplish something
+FCIntegrity_sportq_rules_Vtwo:n1k1ch_divider:I am a good sport about most bad things that happen
+FCMultitasking_life_lotq:n1k1ch_divider:I am definitely a lifelong learner
+FCMultitasking_listenq_even:n1k1ch_divider:I can accept group decisions, even if I don't agree
+FCObjectivity_ask_stayq:n1k1ch_divider:I let the past stay in the past
+FCObjectivity_letq_shoes:n1k1ch_divider:I often "put myself in another's shoes" to understand them
+FCPerseverance_lot_anyq:n1k1ch_divider:I don't complain a lot about undesirable situations
+FCPersuasiveness_good_lotq:n1k1ch_divider:I am good at sensing what others are feeling
+FCPersuasiveness_rightq_given:n1k1ch_divider:I can convince anyone that I am right when I want to
+FCRelationshipBuilding_timeq_good:n1k1ch_divider:I'm good at maintaining contact with people over time
+FCRespectPoliciesAuthority_ladderq_beliefs:n1k1ch_divider:I admire people who work their way up the career ladder
+FC_Agree_Positive:n1k1ch_divider:I tend to agree with the people around me
+FC_Arguments_Outcomes:n1k1ch_divider:Arguments make me really uncomfortable
+FC_Bad_Boss:n1k1ch_divider:When my boss asks me to do something I do it without asking questions
+FC_Believe_Friends:n1k1ch_divider:I believe in people in leadership roles until they give me reason not to
+FC_Best_Upset:n1k1ch_divider:I will always do my best in stressful situations
+FC_Change_Reach:n1k1ch_divider:I often reach out to others for help when stressed
+FC_Confrontations_Rely:n1k1ch_divider:I know dependable people I can rely on when I need help
+FC_Ethical_Difficult:n1k1ch_divider:Most managers are motivated to make ethical decisions
+FC_Happy_Input:n1k1ch_divider:I assume that everyone's future will be happy
+FC_Instinct_Stress:n1k1ch_divider:My instinct is to trust people who have greater responsibility than me
+FC_Myself_Time:n1k1ch_divider:I expect positive things to happen most of the time
+FC_Resistance_Leadership:n1k1ch_divider:I tend to trust people who are in leadership positions
+FC_Trouble_Confident:n1k1ch_divider:Even in stressful situations, I am usually confident I will do my best
+FC_Trustworthy_Future:n1k1ch_divider:I am hopeful about the future
+Grammar_Challenges:n1k1ch_divider:Monica was upset that it's computer did not work.
+Grammar_Release:n1k1ch_divider:The employees at the annual safety meeting is bored.
+PS_CallLog_resolved:n1k1ch_divider:Week 4
+PS_Denise:n1k1ch_divider:55
+PS_Tyson:n1k1ch_divider:$ 720
+PS_Vanessa:n1k1ch_divider:36 hours 15 minutes
+Punc_Issues:n1k1ch_divider:I should probably get new business card's since mine dont have the right title.
+Punc_Report:n1k1ch_divider:Do you really believe that the meeting will start on time.
+Retention_6months:n1k1ch_divider:More than 6
+Retention_keepthisjob:n1k1ch_divider:More than 5 years
+Retention_morethan10late:n1k1ch_divider:I have never had a job before
+Retention_singlecompany:n1k1ch_divider:More than 5 years
+SJT_ActiveListening:n1k1ch_divider:Repeat the information back to the customer word for word.
+SJT_ClientRelationshipManagement:n1k1ch_divider:I would let my supervisor know that I do not know enough about the system to handle the assignment.
+SJT_ReluctantPurchase:n1k1ch_divider:Respect her decision not to sign up for the promotion.
+SJT_TeamLead:n1k1ch_divider:Combine both tasks as well as possible and then explain what you did.
+Sim_Billing_critical_ICS:n1k1ch_divider:The past due balance amount.
+Sim_Billing_due_ICS:n1k1ch_divider:November 30
+Sim_Longevity_cost_OS:n1k1ch_divider:Would you like to learn more about our different payment options?
+Sim_Longevity_goal_OS:n1k1ch_divider:Have you considered that waiting longer to make this decision may cause the rate we quoted you to rise?
+Sim_Longevity_info_OS:n1k1ch_divider:Would it save you some time if I spoke with your wife about the details of the plan?
+Sim_Quickspeed_customer_ICS:n1k1ch_divider:I really apologize, but there are no other options for installing your service.
+Sim_Quickspeed_fulfilled_ICS:n1k1ch_divider:Phone and 200 Channels
+Sim_Quickspeed_why_ICS:n1k1ch_divider:The customer feels angry because she doesn't think anyone should need to be home for the installation.
+Sim_Stay_July_ICS:n1k1ch_divider:900
+Sim_Stay_extra_ICS:n1k1ch_divider:The customer selected a plan that did not allow her to have enough minutes.
+Sim_Stay_situation_ICS:n1k1ch_divider:Ok. Let me see how much I can reimburse for the overage charges on your bills.
+Sim_Television_accurate_US:n1k1ch_divider:Yes. The customer has two movie packages currently.
+Sim_Television_promotional_US:n1k1ch_divider:That she and her husband do not really watch the movie channels they currently subscribe to.
+Sim_Television_response_US:n1k1ch_divider:I'll be brief. If I could offer you the same promotion for two premium cartoon channels is that something you'd be interested in?
+Spelling_Embarrassed:n1k1ch_divider:The customer asked some unecessary questions.
+Spelling_License:n1k1ch_divider:She tried to be descreet during the important meeting.
+Spelling_Participate:n1k1ch_divider:noticable
+Spelling_Reimburse:n1k1ch_divider:reccomend
+TK_Core_Cursor:n1k1ch_divider:Tab
+TK_Core_CuttingText:n1k1ch_divider:Ctrl+X
+TK_Core_Hardware:n1k1ch_divider:Microsoft Outlook
+TK_Core_UniqueIdentifier:n1k1ch_divider:Network ID
+Vocab_Evaluation:n1k1ch_divider:weight
+Vocab_Summarize:n1k1ch_divider:imitate</textarea>
+<button id="go">Go</button>
+<textarea id="duplicates">
+
+</textarea>
+
+</body>
+</html>

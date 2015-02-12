@@ -1,0 +1,33 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="flippy/jquery.flippy.js"></script>
+<title></title>
+<style type="text/css">
+	.flipcontent {
+		width: 150px;
+		height: 100px;
+	}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$(document).on("click", ".flipper", function(e){
+		$(".flipcontent").flippy({
+			color_target: "#0f0",
+			direction: "right",
+			duration: "500",
+			verso: "<div>ALALA</div>"
+		});
+	});
+});
+
+</script>
+<body>
+<div class="flipcontent"></div>
+
+<button class="flipper"></button>
+
+</body>
+</html>

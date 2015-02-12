@@ -1,0 +1,39 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+	div {
+		width: 100px;
+		height: 100px;
+		overflow-y: auto;
+		border: solid 1px black;
+	}
+	
+	.noWrap {
+		white-space: no-wrap;
+	}
+	
+	.breakWord {
+		word-wrap: break-word;
+	}
+	
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#inputSource").on("keypress", function(){
+		$("#result").html($(this).val());
+	});
+});
+
+</script>
+<body>
+
+<input id="inputSource" type="text"/>
+<div id="result" class="noWrap breakWord">
+WWWWWWWWWW sWWWWWWWWWWWWWW WWWWWWWWWWWWw
+</div>
+
+</body>
+</html>
