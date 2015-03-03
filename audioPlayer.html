@@ -1,0 +1,62 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+#playlist {
+	list-style-type: none;
+}
+
+#playlist li {
+	margin-bottom: 15px;
+}
+</style>
+</head>
+<script type="text/javascript">
+var sources = [];
+var playlist;
+
+$(document).ready(function(){
+	playlist = $('#playlist');
+	var savedSources = JSON.parse(localStorage.getItem('audioSources'));
+	
+	for(var key in savedSources) {
+		addItem(savedSources[key]);
+	}
+
+	$(document).on("keydown", '#addSong', function(e){
+		if(e.keyCode === 13) {
+			addItem($('#addSong').val());
+		}
+	});
+});
+
+function addItem(songToAdd) {
+	sources.push(songToAdd);
+	var audio = $('<audio>').attr('controls', '');
+	audio.append($('<source>').attr('type', 'audio/mpeg').attr('src', songToAdd));
+	var li = $('<li>');
+	li.append(audio);
+	li.append($('<div>').html(songToAdd));
+	playlist.append(li);
+}
+
+</script>
+<body>
+
+<!--
+<audio id="player" controls>
+	<source src="http://www.electronicaexposed.com/audio/samples/eecd015-02_-_substanced_-_challenge_-_epyx_&_cyrez_remix.mp3" type="audio/mpeg"/>
+</audio>
+-->
+
+<div>
+	<ul id="playlist">
+	
+	</ul>
+	
+	<input type="text" id="addSong"/>
+</div>
+
+</body>
+</html>
