@@ -16,9 +16,11 @@
 var sources = [];
 var playlist;
 
+var STORAGE_KEY = 'audioSources';
+
 $(document).ready(function(){
 	playlist = $('#playlist');
-	var savedSources = JSON.parse(localStorage.getItem('audioSources'));
+	var savedSources = JSON.parse(localStorage.getItem(STORAGE_KEY));
 	
 	for(var key in savedSources) {
 		addItem(savedSources[key]);
@@ -27,6 +29,7 @@ $(document).ready(function(){
 	$(document).on("keydown", '#addSong', function(e){
 		if(e.keyCode === 13) {
 			addItem($('#addSong').val());
+			persist();
 		}
 	});
 });
@@ -39,6 +42,10 @@ function addItem(songToAdd) {
 	li.append(audio);
 	li.append($('<div>').html(songToAdd));
 	playlist.append(li);
+}
+
+function persist() {
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(sources));
 }
 
 </script>
