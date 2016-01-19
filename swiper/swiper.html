@@ -1,0 +1,38 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="bower_components/Swiper/dist/css/swiper.min.css">
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/Swiper/dist/js/swiper.jquery.js"></script>
+<title></title>
+<style type="text/css">
+.swiper-slide {
+	background: #00ffff;
+}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	var swiper = new Swiper('.swiper-container', {
+		direction: 'horizontal',
+		loop: false,
+		// scrollbar: '.swiper-scrollbar',
+		pagination: '.swiper-pagination',
+		parallax: true
+	});
+});
+
+</script>
+<body>
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">1</div>
+		<div class="swiper-slide">2</div>
+		<div class="swiper-slide">3</div>
+		<div class="swiper-slide">4</div>
+		<div class="swiper-slide">5</div>
+	</div>
+	<div class="swiper-pagination"></div>
+</div>
+
+</body>
+</html>
