@@ -1,0 +1,18 @@
+div {
+	/*outline: 1px dotted #333;*/
+}
+
+/*td, th {
+	outline: 1px dotted #333;
+	padding: 0.2em 0.3em;
+	word-break: break-word;
+}*/
+
+#container {
+	height: 100%;
+}
+
+body, html {
+	height: 100%;
+	margin: 0;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "react-my",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Nikita Cherevkov <ncherevkov@csod.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/n1k1ch/HtmlMess",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.14.6",
+    "moment": "~2.11.1",
+    "lodash": "~4.0.0",
+    "radium": "~0.16.2",
+    "classnames": "~2.2.3",
+    "font-awesome": "fontawesome#~4.5.0"
+  }
+}
