@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<title></title>
+<style type="text/css">
+	html,
+	body {
+	  height: 100%;
+	  margin: 0
+	}
+
+
+	.box {
+	  display: flex;
+	  flex-flow: column;
+	  height: 100%;
+	}
+
+	.box .row {
+	  border: 1px dotted grey;
+	  flex: 0 1 30px;
+	}
+
+	.box .row.header {
+	  flex: 0 1 auto;
+	}
+
+	.box .row.content {
+	  flex: 1 1 auto;
+	}
+
+	.box .row.footer {
+	  flex: 0 1 50px;
+	}
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+});
+
+</script>
+<body>
+
+<div>
+<div >
+<form class="box"> 
+  
+  <div class="row content">
+    <p>
+      <b>content</b>
+      (fills remaining space)
+    </p>
+  </div>
+  <div class="row footer">
+    <p><b>footer</b> (fixed height)</p>
+  </div>
+</div>
+</form>
+</div>
+
+</body>
+</html>
