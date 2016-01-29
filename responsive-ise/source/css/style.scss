@@ -1,0 +1,115 @@
+$max-wrapper-width: 960px;
+$header-color: #ea2;
+$main-color: #289;
+$questions-color: lighten($main-color, 10);
+$toolbar-color: darken($main-color, 10);
+$progress-color: adjust-hue($toolbar-color, 20);
+$footer-color: #a2c;
+
+$mobile-portrait: 'screen and (max-width: 480px) and (orientation: portrait)';
+$mobile-landscape: 'screen and (max-height: 480px) and (orientation: landscape)';
+$mobile-common: $mobile-portrait + ',' + $mobile-landscape;
+
+@mixin button($color) {
+  border: 1px solid darken($color, 50);
+  background: $color;
+  color: lighten($color, 50);
+  appearance: none;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+
+  background: #333;
+  color: #eee;
+  font-size: 100%;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: $max-wrapper-width;
+  margin: 0 auto;
+
+  header {
+    background: $header-color;
+
+    @media #{$mobile-common} {
+      flex: 0 0 5.0em;
+    }
+  }
+
+  main {
+    background: $main-color;
+
+    .questions {
+      background: $questions-color;
+
+      @media #{$mobile-common} {
+        flex: 1 0 0;
+      }
+    }
+
+    .progress-row {
+      display: none;
+
+      @media #{$mobile-landscape} {
+        display: block;
+      }
+    }
+
+    .toolbar {
+      background: $toolbar-color;
+      display: flex;
+
+      .progress-col {
+        flex: 1 0 0;
+
+        background: $progress-color;
+
+        @media #{$mobile-landscape} {
+          display: none;
+        }
+      }
+
+      .buttons {
+        background: darken($toolbar-color, 15);
+
+        input[type="button"] {
+          @include button($header-color);
+        }
+      }
+    }
+
+    @media #{$mobile-common} {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen and (max-height: 480px) and (orientation: landscape) {
+      flex-direction: row;
+    }
+  }
+
+  footer {
+    background: $footer-color;
+
+    @media #{$mobile-common} {
+      flex: 0 0 1.0em;
+    }
+  }
+
+  @media #{$mobile-common}{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media #{$mobile-common} {
+  html, body, body > div {
+    height: 100%;
+  }
+}
